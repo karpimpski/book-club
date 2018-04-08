@@ -24,6 +24,8 @@ app.use(passport.initialize())
 app.use(passport.session())
 app.use(flash())
 
+app.use(express.static(__dirname + "/client"))
+app.set("views", __dirname + "/client/views")
 app.set("view engine", "ejs")
 
 require("./app/routes.js")(app, passport)
