@@ -1,0 +1,15 @@
+<form action=<%= "/" + method %> method="post" class="user-form">
+	<div>
+		<label>Email</label><br>
+		<input type="text"name="email">
+	</div>
+	<div>
+		<label>Password</label><br>
+		<input type="password" name="password">
+	</div>
+
+	<div>
+		<button type="submit"><%= method.charAt(0).toUpperCase() + method.slice(1) %></button>
+	</div>
+	
+</form>
