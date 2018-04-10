@@ -1,7 +1,22 @@
 <% include partials/head.ejs %>
 
 <body>
+	<%- include("partials/navbar.ejs", {user: user}) %>
 	<p id="page-title">Profile</p>
 
-	
+	<form action="/update-user" method="POST" id="user-information">
+		<label>Email</label>
+		<input type="text" name="email" value="<%= user.email %>" readonly><br>
+		
+		<label>Full Name</label>
+		<input type="text" name="fullName" value="<%= user.fullName %>"><br>
+
+		<label>City</label>
+		<input type="text" name="city" value="<%= user.city %>"><br>
+
+		<label>State</label>
+		<input type="text" name="state" value="<%= user.state %>">
+
+		<button type="Submit">Update</button>
+	</form>
 </body>

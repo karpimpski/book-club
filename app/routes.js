@@ -1,3 +1,5 @@
+const userController = require("./controllers/userController")
+
 module.exports = function(app, passport) {
 	app.get("/", function(req, res) {
 		res.render("index.ejs", {user: req.user})
@@ -31,6 +33,13 @@ module.exports = function(app, passport) {
 		failureRedirect: "/login",
 		failureFlash: true
 	}))
+
+	app.post("/update-user", function(req, res) {
+		userController.update(req.user._id, req.body, function(err, user) {
+			if(err) res.send(err);
+			res.redirect("/profile")
+		})
+	})
 
 	function isLoggedIn(req, res, next) {
 		if(req.isAuthenticated()) return next()
