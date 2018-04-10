@@ -4,19 +4,30 @@
 	<%- include("partials/navbar.ejs", {user: user}) %>
 	<p id="page-title">Profile</p>
 
-	<form action="/update-user" method="POST" id="user-information">
-		<label>Email</label>
-		<input type="text" name="email" value="<%= user.email %>" readonly><br>
+	<form action="/update-user" method="POST" id="user-information" class="user-form">
+		<div>
+			<label>Email</label><br>
+			<input type="text" name="email" value="<%= user.email %>" readonly>
+		</div>
 		
-		<label>Full Name</label>
-		<input type="text" name="fullName" value="<%= user.fullName %>"><br>
+		<div>
+			<label>Full Name</label><br>
+			<input type="text" name="fullName" value="<%= user.fullName %>">
+		</div>
+		
+		<div>
+			<label>City</label><br>
+			<input type="text" name="city" value="<%= user.city %>">
+		</div>
+		
+		<div>
+			<label>State</label><br>
+			<input type="text" name="state" value="<%= user.state %>">
+		</div>
 
-		<label>City</label>
-		<input type="text" name="city" value="<%= user.city %>"><br>
-
-		<label>State</label>
-		<input type="text" name="state" value="<%= user.state %>">
-
-		<button type="Submit">Update</button>
+		<div>
+			<button type="Submit">Update</button>
+		</div>
+		
 	</form>
 </body>
