@@ -1,0 +1,18 @@
+<div id="navbar">
+	<div id="navbar-left">
+		<a class="title" href="/">Book Club</a>
+		<% if (user != null) { %>
+			<a href="/my-books">My Books</a>
+		<% } %>
+	</div>
+
+	<div id="navbar-right">
+		<% if (user == null) { %>
+			<a href="/login" class="navbar-end">Local Login</a>
+			<a href="/signup" class="navbar-end">Local Signup</a>
+		<% } else { %>
+			<a href="/profile" class="navbar-end">Profile</a>
+			<a href="/logout" class="navbar-end">Sign out</a>
+		<% } %>
+	</div>
+</div>

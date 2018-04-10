@@ -3,10 +3,8 @@
 </head>
 
 <body>
-	<h1>Book Club</h1>
+	<%- include("partials/navbar.ejs", {user: user}) %>
+	<h1>All Books</h1>
 
-	<p>Login or Register with:</p>
-
-	<a href="/login" class="button-link">Local Login</a>
-	<a href="/signup" class="button-link">Local Signup</a>
+	
 </body>

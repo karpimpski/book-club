@@ -1,20 +1,17 @@
 :root {
 	--bg-color: rgb(230, 230, 230);
+	--dark-bg-color: rgb(204, 204, 204);
 	--text-color: rgb(0, 0, 0);
 	--border-color: rgb(90, 90, 90);
+	--navbar-border: rgb(163, 163, 163);
 }
 
 body {
 	background-color: var(--bg-color);
 	color: var(--text-color);
 	font-family: sans-serif;
-}
-
-.button-link {
-	border: 1px solid var(--border-color);
-	color: var(--text-color);
-	text-decoration: none;
-	padding: 6px;
+	margin: 0;
+	padding: 0;
 }
 
 .user-form {
@@ -26,14 +23,48 @@ body {
 	text-align: center;
 }
 
-.user-form label {
-
+#navbar {
+	display: inline-block;
+	padding: 0 20px 0 20px;
+	width: calc(100% - 40px);
+	height: 60px;
+	line-height: 60px;
+	border: 2px solid var(--navbar-border);
+	border-width: 0 0 1px 0;
 }
 
-.user-form input {
-
+#navbar a {
+	width: 100px;
+	height: 100%;
+	padding: 0 10px 0 10px;
+	text-align: center;
+	font-family: sans-serif;
+	text-decoration: none;
+	color: var(--text-color);
 }
 
-.user-form button {
-	
+#navbar .title {
+	font-size: 1.1em;
+}
+
+#navbar a:hover {
+	background-color: var(--dark-bg-color);
+}
+
+#navbar-left {
+	float: left;
+	width: 50%;
+}
+
+#navbar-right {
+	float: right;
+	width: 50%;
+}
+
+#navbar-left a {
+	float: left;
+}
+
+#navbar-right a {
+	float: right;
 }
