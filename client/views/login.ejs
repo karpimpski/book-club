@@ -1,6 +1,4 @@
-<head>
-	<% include partials/head.ejs %>
-</head>
+<% include partials/head.ejs %>
 
 <body>
 	<%- include("partials/navbar.ejs", {user: user}) %>
@@ -8,8 +6,21 @@
 
 	<!-- show authentication message, if any -->
 	<% if (message.length > 0) { %>
-		<div><%= message %></div>
+		<div id="auth-message"><%= message %></div>
 	<% } %>
 
-	<%- include("partials/auth_form.ejs", {method: "login"}) %>
+	<form action="/login" method="post" class="user-form">
+		<div>
+			<label>Email</label><br>
+			<input type="text"name="email">
+		</div>
+		<div>
+			<label>Password</label><br>
+			<input type="password" name="password">
+		</div>
+	
+		<div>
+			<button type="submit">Sign in</button>
+		</div>
+	</form>
 </body>

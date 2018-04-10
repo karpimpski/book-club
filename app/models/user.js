@@ -3,7 +3,10 @@ const mongoose = require("mongoose"),
 
 const userSchema = mongoose.Schema({
 	email: String,
-	password: String
+	password: String,
+	fullName: String,
+	city: String,
+	state: String
 })
 
 userSchema.methods.generateHash = function(password) {
