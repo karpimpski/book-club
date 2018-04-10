@@ -4,7 +4,7 @@
 
 <body>
 	<%- include("partials/navbar.ejs", {user: user}) %>
-	<h1>Login</h1>
+	<p id="page-title">Login</p>
 
 	<!-- show authentication message, if any -->
 	<% if (message.length > 0) { %>
@@ -12,9 +12,4 @@
 	<% } %>
 
 	<%- include("partials/auth_form.ejs", {method: "login"}) %>
-
-	<hr>
-
-	<p>Need an account? <a href="/signup">Signup</a></p>
-	<p>Or go <a href="/">home</a>.</p>
 </body>

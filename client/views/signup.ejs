@@ -3,21 +3,13 @@
 </head>
 
 <body>
-		<h1>Signup</h1>
+	<%- include("partials/navbar.ejs", {user: user}) %>
+	<p id="page-title">Signup</p>
 
-		<!-- show authentication message, if any -->
-		<% if (message.length > 0) { %>
-			<div><%= message %></div>
-		<% } %>
+	<!-- show authentication message, if any -->
+	<% if (message.length > 0) { %>
+		<div><%= message %></div>
+	<% } %>
 
-		<%- include("partials/auth_form.ejs", {method: "signup"}) %>
-
-		<hr>
-
-		<p>Already have an account? <a href="/login">Login</a></p>
-		<p>Or go <a href="/">home</a>.</p>
-
-	</div>
-
-	</div>
+	<%- include("partials/auth_form.ejs", {method: "signup"}) %>
 </body>
