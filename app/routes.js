@@ -1,4 +1,5 @@
 const userController = require("./controllers/userController"),
+	  bookController = require("./controllers/bookController"),
 	  request = require("request")
 
 module.exports = function(app, passport) {
@@ -21,6 +22,10 @@ module.exports = function(app, passport) {
 	app.get("/logout", function(req, res) {
 		req.logout()
 		res.redirect("/")
+	})
+
+	app.get("/my-books", function(req, res) {
+		res.render("myBooks.ejs", { user: req.user })
 	})
 
 	app.get("/booksearch", function(req, res) {
@@ -51,6 +56,16 @@ module.exports = function(app, passport) {
 			if(err) res.send(err);
 			res.redirect("/profile")
 		})
+	})
+
+	app.post("/add-book", function(req, res) {
+		console.log(req.body)
+		if(req.user) {
+			bookController.create(req.user._id, req.body.title, req.body.imageSource, function(err, book) {
+				if(book!= null) console.log(book.title + " added to " + req.user.email)
+				res.send(book)
+			})
+		}
 	})
 
 	function isLoggedIn(req, res, next) {

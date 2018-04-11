@@ -143,9 +143,10 @@ body {
 
 #dropdown div:hover {
 	background-color: var(--dark-bg-color);
+	cursor: pointer;
 }
 
 #dropdown img {
 	height: 125px;
-	width: auto;
+	width: 97px;
 }
