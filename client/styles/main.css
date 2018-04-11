@@ -109,3 +109,36 @@ body {
 	cursor: pointer;
 	box-shadow: 2px 2px 3px rgb(97, 97, 97);
 }
+
+/* BOOK SEARCH BAR */
+#search-form {
+	width: 100%;
+	display: inline-block;
+	text-align: center;
+	overflow: hidden;
+}
+
+#dropdown {
+	padding-top: 6px;
+	height: 400px;
+	max-height: 400px;
+	background: var(--bg-color);
+	overflow-y: auto;
+	width: 200px;
+	position: absolute;
+	left: calc(50% - 100px);
+}
+
+#dropdown div {
+	padding: 12px;
+	transition: all 0.2s;
+}
+
+#dropdown div:hover {
+	background-color: var(--dark-bg-color);
+}
+
+#dropdown img {
+	height: 125px;
+	width: auto;
+}

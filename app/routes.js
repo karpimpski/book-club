@@ -1,4 +1,5 @@
-const userController = require("./controllers/userController")
+const userController = require("./controllers/userController"),
+	  request = require("request")
 
 module.exports = function(app, passport) {
 	app.get("/", function(req, res) {
@@ -20,6 +21,17 @@ module.exports = function(app, passport) {
 	app.get("/logout", function(req, res) {
 		req.logout()
 		res.redirect("/")
+	})
+
+	app.get("/booksearch", function(req, res) {
+		// using the public Google Books API
+		let url = "https://www.googleapis.com/books/v1/volumes?q=intitle+" + req.query.search
+		request(url, {json: true}, (err, response, body) => {
+			if(err) throw err
+			console.log(url)
+			res.send(body.items)
+		})
+		console.log(url)
 	})
 
 	app.post("/signup", passport.authenticate("local-signup", {
