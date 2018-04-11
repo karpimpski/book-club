@@ -115,7 +115,14 @@ body {
 	width: 100%;
 	display: inline-block;
 	text-align: center;
-	overflow: hidden;
+}
+
+#search-input {
+	border: 1px solid var(--border-color);
+	background: none;
+	width: 200px;
+	text-align: center;
+	border-width: 0 0 1px 0;
 }
 
 #dropdown {
