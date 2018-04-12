@@ -1,6 +1,7 @@
 <head>
 	<% include partials/head.ejs %>
 	<link rel="stylesheet" href="styles/authform.css">
+	<link rel="stylesheet" href="styles/booklist.css">
 </head>
 
 <body>
@@ -33,4 +34,13 @@
 		</div>
 		
 	</form>
+
+	<div id="books">
+		<% for (var i = 0; i < books.length; i++) { console.log(books[i]); %>
+			<div>
+				<img src="<%= books[i].imageSource %>"></img>
+				<p><%= books[i].title %></p>
+			</div>
+		<% } %>
+	</div>
 </body>

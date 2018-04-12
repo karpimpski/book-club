@@ -16,19 +16,15 @@ module.exports = function(app, passport) {
 	})
 
 	app.get("/profile", isLoggedIn, function(req, res) {
-		res.render("profile.ejs", { user: req.user })
+		userController.getBooks(req.user._id, function(err, books) {
+			console.log(books)
+			res.render("profile.ejs", { user: req.user, books: books })
+		})
 	})
 
 	app.get("/logout", function(req, res) {
 		req.logout()
 		res.redirect("/")
-	})
-
-	app.get("/my-books", function(req, res) {
-		userController.getBooks(req.user._id, function(err, books) {
-			console.log(books)
-			res.render("myBooks.ejs", { user: req.user, books: books })
-		})
 	})
 
 	app.get("/booksearch", function(req, res) {

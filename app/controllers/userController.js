@@ -17,7 +17,11 @@ exports.getBooks = function(id, cb) {
 			Book.findById(user.books[i], function(err, book) {
 				if(err) throw err
 				result.push(book)
-				if(result.length == user.books.length) cb(err, result)
+				if(result.length == user.books.length) cb(err, result.sort((a, b) => {
+					if (a.title > b.title) return 1;
+					if (a.title < b.title) return -1;
+					return 0;
+				}))
 			})
 		}
 	})

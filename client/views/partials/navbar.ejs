@@ -1,9 +1,6 @@
 <div id="navbar">
 	<div id="navbar-left">
 		<a class="title" href="/">Book Club</a>
-		<% if (user != null) { %>
-			<a href="/my-books">My Books</a>
-		<% } %>
 	</div>
 
 	<div id="navbar-right">
@@ -11,8 +8,8 @@
 			<a href="/signup" class="navbar-end">Register</a>
 			<a href="/login" class="navbar-end">Login</a>
 		<% } else { %>
-			<a href="/profile" class="navbar-end">Profile</a>
 			<a href="/logout" class="navbar-end">Sign out</a>
+			<a href="/profile" class="navbar-end">Profile</a>
 		<% } %>
 	</div>
 </div>
