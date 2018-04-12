@@ -1,0 +1,40 @@
+/* BOOK SEARCH BAR */
+#search-form {
+	width: 100%;
+	display: inline-block;
+	text-align: center;
+}
+
+#search-input {
+	border: 1px solid var(--border-color);
+	background: none;
+	width: 200px;
+	text-align: center;
+	border-width: 0 0 1px 0;
+}
+
+#dropdown {
+	padding-top: 6px;
+	height: 400px;
+	max-height: 400px;
+	background: var(--bg-color);
+	overflow-y: auto;
+	width: 200px;
+	position: absolute;
+	left: calc(50% - 100px);
+}
+
+#dropdown div {
+	padding: 12px;
+	transition: all 0.2s;
+}
+
+#dropdown div:hover {
+	background-color: var(--dark-bg-color);
+	cursor: pointer;
+}
+
+#dropdown img {
+	height: 125px;
+	width: 97px;
+}
