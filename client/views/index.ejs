@@ -6,12 +6,11 @@
 <body>
 	<%- include("partials/navbar.ejs", {user: user}) %>
 	<p id="page-title">All Books</p>
-	<form id="search-form">
-		<input type="text" name="searchValue" id="search-input" placeholder="Book title">
-		<button type="Submit">Search Book</button>
+	<div id="search-form">
+		<input type="text" name="searchValue" id="search-input" placeholder="Book title" autocomplete="off">
 		<div id="dropdown">
 		</div>
-	</form>
+	</div>
 
 	<script
 		src="https://code.jquery.com/jquery-3.3.1.min.js"

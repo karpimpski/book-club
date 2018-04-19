@@ -1,3 +1,8 @@
+:root {
+	--dropdown-bg: rgb(248, 248, 248);
+	--dark-dropdown-bg: rgb(212, 212, 212);
+}
+
 /* BOOK SEARCH BAR */
 #search-form {
 	width: 100%;
@@ -8,33 +13,41 @@
 #search-input {
 	border: 1px solid var(--border-color);
 	background: none;
-	width: 200px;
+	width: 250px;
 	text-align: center;
 	border-width: 0 0 1px 0;
 }
 
 #dropdown {
-	padding-top: 6px;
-	height: 400px;
+	background: var(--dropdown-bg);
 	max-height: 400px;
-	background: var(--bg-color);
 	overflow-y: auto;
-	width: 200px;
+	width: 250px;
 	position: absolute;
-	left: calc(50% - 100px);
+	left: calc(50% - 125px);
 }
 
 #dropdown div {
-	padding: 12px;
+	height: 20px;
+	display: flex;
+	justify-content: space-between;
+	font-size: 12px;
 	transition: all 0.2s;
 }
 
+#dropdown div {
+	line-height: 20px;
+	text-align: left;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
 #dropdown div:hover {
-	background-color: var(--dark-bg-color);
+	background-color: var(--dark-dropdown-bg);
 	cursor: pointer;
 }
 
-#dropdown img {
-	height: 125px;
-	width: 97px;
+#dropdown div img {
+	height: 20px;
+	width: auto;
 }

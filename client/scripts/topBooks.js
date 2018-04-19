@@ -1,10 +1,15 @@
-var form = document.getElementById("search-form");
+var input = document.getElementById("search-input");
 var dropdown = document.getElementById("dropdown");
 
 // book search listener
-form.addEventListener("submit", function(e) {
-	e.preventDefault();
-	$.get("/booksearch?search=" + form.elements["searchValue"].value, function(result) {
+var timer;
+input.addEventListener("keyup", function(e) {
+	window.clearTimeout(timer);
+	timer = window.setTimeout(function() { searchBook(input.value) }, 1000);
+})
+
+function searchBook(bookTitle) {
+	$.get("/booksearch?search=" + bookTitle, function(result) {
 		var htmlString = "";
 		for(var i = 0; i < result.length; i++) {
 			try {
@@ -13,17 +18,17 @@ form.addEventListener("submit", function(e) {
 				var imageSrc = "img/placeholder.png";
 			}
 
-			htmlString += "<div><img src='" + imageSrc + "'></img> <p>" + result[i].volumeInfo.title + "</p></div>"
+			htmlString += "<div><span>" + result[i].volumeInfo.title + "</span><img src='" + imageSrc + "'></img> </div>"
 			
 		}
 		dropdown.innerHTML = htmlString;
 		addBookListeners();
 	})
-});
+}
 
 // if user clicks anywhere outside of the form or dropdown menu, close the menu
 document.addEventListener("click", function(e) {
-	if(!(form.contains(e.target))) {
+	if(!(e.target == input || e.target == dropdown || dropdown.contains(e.target))) {
 		dropdown.innerHTML = "";
 	}
 });
@@ -47,7 +52,7 @@ function bookClick(e) {
 
 	$.post("/add-book", 
 	{
-		title: div.getElementsByTagName("p")[0].innerHTML, 
+		title: div.getElementsByTagName("span")[0].innerHTML, 
 		imageSource: div.getElementsByTagName("img")[0].src 
 	},
 	function(err, book) {
